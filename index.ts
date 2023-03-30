@@ -3,7 +3,7 @@ import cors from 'cors'
 //import {Pool } from 'pg'
 import {Pool, QueryResult } from 'pg'
 //const BACKED_ROOT_URL = 'http://localhost:3001'
-const BACKED_ROOT_URL = 'https://todo-backend-46pk.onrender.com'
+//const BACKED_ROOT_URL = 'https://todo-backend-46pk.onrender.com'
 //const list = <HTMLUListElement>document.querySelector('#todolist')
 
 const app: Express = express()
