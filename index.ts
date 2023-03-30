@@ -3,6 +3,7 @@ import cors from 'cors'
 //import {Pool } from 'pg'
 import {Pool, QueryResult } from 'pg'
 //const BACKED_ROOT_URL = 'http://localhost:3001'
+const BACKED_ROOT_URL = 'https://todo-backend-46pk.onrender.com'
 //const list = <HTMLUListElement>document.querySelector('#todolist')
 
 const app: Express = express()
@@ -21,6 +22,7 @@ app.get('/', (req: Request,res: Response) => {
             res.status(500).json({error: error.message})
         }
         //problem part is this one, I should put to get result from sql
+        //res.status(200).json(result:'success')
         res.status(200).json(result.rows)
     })
 
@@ -53,13 +55,14 @@ app.delete('/delete/:id',async(req: Request, res: Response) => {
 
 const openDb= (): Pool=> {
    const pool: Pool = new Pool({
-/*       user: 'postgres',
+      /*user: 'postgres',
       host: 'localhost',
       database: 'todo',
       password: 'a640111',
       port: 5432 */
       user: 'root',
       host: 'dpg-cghvii82qv2772g8vkb0-a.oregon-postgres.render.com',
+      //host: 'dpg-cghvii82qv2772g8vkb0-a',
       database: 'todo_2hiz',
       password: 'dRoeC4VULxiwrJZl4VfGk5W5OYdB843x',
       port: 5432,

@@ -44,6 +44,7 @@ var cors_1 = __importDefault(require("cors"));
 //import {Pool } from 'pg'
 var pg_1 = require("pg");
 //const BACKED_ROOT_URL = 'http://localhost:3001'
+var BACKED_ROOT_URL = 'https://todo-backend-1h0o.onrender.com';
 //const list = <HTMLUListElement>document.querySelector('#todolist')
 var app = (0, express_1["default"])();
 app.use((0, cors_1["default"])());
@@ -58,6 +59,7 @@ app.get('/', function (req, res) {
             res.status(500).json({ error: error.message });
         }
         //problem part is this one, I should put to get result from sql
+        //res.status(200).json(result:'success')
         res.status(200).json(result.rows);
     });
 });
@@ -86,11 +88,18 @@ app["delete"]('/delete/:id', function (req, res) { return __awaiter(void 0, void
 }); });
 var openDb = function () {
     var pool = new pg_1.Pool({
-        user: 'postgres',
+        /*user: 'postgres',
         host: 'localhost',
         database: 'todo',
         password: 'a640111',
-        port: 5432
+        port: 5432 */
+        user: 'root',
+        host: 'dpg-cghvii82qv2772g8vkb0-a.oregon-postgres.render.com',
+        //host: 'dpg-cghvii82qv2772g8vkb0-a',
+        database: 'todo_2hiz',
+        password: 'dRoeC4VULxiwrJZl4VfGk5W5OYdB843x',
+        port: 5432,
+        ssl: true
     });
     return pool;
 };
